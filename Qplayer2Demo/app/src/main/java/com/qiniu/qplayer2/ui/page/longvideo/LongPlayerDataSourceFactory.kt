@@ -17,6 +17,26 @@ object LongPlayerDataSourceFactory {
         var builder = QMediaModelBuilder()
         var url = ""
         var name = ""
+
+        builder = QMediaModelBuilder()
+        url = "http://demo-videos.qnsdk.com/only-video-1080p-60fps.m4s"
+        builder.addElement("", QURLType.QVIDEO, 1080, url, true)
+        name = "9-点播-http-m4s-纯视频"
+        videoParams = LongVideoParams(name, name.hashCode().toLong())
+        dataSourceBuilder.addVideo(
+            videoParams,
+            arrayListOf<LongPlayableParams>(
+                LongPlayableParams(
+                    builder.build(false),
+                    LongControlPanelType.Normal.type,
+                    DisplayOrientation.LANDSCAPE,
+                    LongEnviromentType.LONG.type,
+                    PlayerSettingRespostory.startPosition
+                )
+            )
+        )
+
+
         builder = QMediaModelBuilder()
 
         builder.addElement(
@@ -184,23 +204,7 @@ object LongPlayerDataSourceFactory {
             )
         )
 
-        builder = QMediaModelBuilder()
-        url = "http://demo-videos.qnsdk.com/only-video-1080p-60fps.m4s"
-        builder.addElement("", QURLType.QVIDEO, 1080, url, true)
-        name = "9-点播-http-m4s-纯视频"
-        videoParams = LongVideoParams(name, name.hashCode().toLong())
-        dataSourceBuilder.addVideo(
-            videoParams,
-            arrayListOf<LongPlayableParams>(
-                LongPlayableParams(
-                    builder.build(false),
-                    LongControlPanelType.Normal.type,
-                    DisplayOrientation.LANDSCAPE,
-                    LongEnviromentType.LONG.type,
-                    PlayerSettingRespostory.startPosition
-                )
-            )
-        )
+
 
 
 

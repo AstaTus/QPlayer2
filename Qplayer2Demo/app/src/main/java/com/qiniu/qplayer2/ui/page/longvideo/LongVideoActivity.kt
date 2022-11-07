@@ -48,7 +48,6 @@ class LongVideoActivity : AppCompatActivity() {
         val config = CommonPlayerConfig.Builder<Any,
                 LongLogicProvider, LongPlayableParams, LongVideoParams>()
             .addControlPanel(
-                LongControlPanelType.Normal.type,
                 ControlPanelConfig(
                     LongControlPanelType.Normal.type,
                     arrayListOf(

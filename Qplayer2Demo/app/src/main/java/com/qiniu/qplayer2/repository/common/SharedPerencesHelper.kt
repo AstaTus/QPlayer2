@@ -55,7 +55,7 @@ class SharedPreferencesHelper {
             try {
                 val strValue = sharedPreferences.getString(key, null)
                 return if (TextUtils.isEmpty(strValue)) defaultValue else try {
-                    Integer.valueOf(strValue)
+                    Integer.valueOf(strValue!!)
                 } catch (e2: NumberFormatException) {
                     defaultValue
                 }

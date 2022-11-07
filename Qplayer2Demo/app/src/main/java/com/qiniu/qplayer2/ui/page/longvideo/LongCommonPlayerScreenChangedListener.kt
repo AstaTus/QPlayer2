@@ -21,10 +21,10 @@ class LongCommonPlayerScreenChangedListener(
     override fun onScreenTypeChanged(screenType: ScreenType) {
 
         if (screenType == ScreenType.HALF_SCREEN) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
                 mActivity.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
             } else {
-                mActivity.window.insetsController?.show(WindowInsetsCompat.Type.statusBars())
+//                mActivity.window?.show(WindowInsetsCompat.Type.statusBars())
             }
             mVideoContainer.layoutParams.height = DpUtils.dpToPx(200)
             mVideoContainer.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
@@ -39,13 +39,13 @@ class LongCommonPlayerScreenChangedListener(
                 }
             }
         } else {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
                 mActivity.window.setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
                 )
             } else {
-                mActivity.window.insetsController?.hide(WindowInsetsCompat.Type.statusBars())
+//                mActivity.window?.hide(WindowInsetsCompat.Type.statusBars())
             }
             mVideoContainer.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
             mVideoContainer.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT

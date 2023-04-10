@@ -10,7 +10,7 @@ import java.util.*
 
 class ShortVideoListAdapter(
     private val mPlayItemList: ArrayList<PlayItem>,
-    private val mVideoPlayerView: QSurfacePlayerView
+    private val mVideoPlayerView: MySurfacePlayerView
 ) : RecyclerView.Adapter<ShortVideoHolder>() {
 
 

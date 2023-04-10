@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.qiniu.qplayer2.BuildConfig
 import com.qiniu.qplayer2.R
 import com.qiniu.qplayer2.ui.page.doubleplayer.DoublePlayerActivity
-import com.qiniu.qplayer2.ui.page.longvideo.LongVideoActivity
 import com.qiniu.qplayer2.ui.page.simplelongvideo.SimpleLongVideoActivity
 import com.qiniu.qplayer2.ui.page.setting.SettingActivity
 import com.qiniu.qplayer2.ui.page.shortvideo.ShortVideoActivity
@@ -25,10 +24,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.long_video_player_BTN).setOnClickListener {
-            val intent = Intent(this, LongVideoActivity::class.java)
-            startActivity(intent)
-        }
+//        findViewById<Button>(R.id.long_video_player_BTN).setOnClickListener {
+//            val intent = Intent(this, LongVideoActivity::class.java)
+//            startActivity(intent)
+//        }
 
         findViewById<Button>(R.id.setting_BTN).setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)

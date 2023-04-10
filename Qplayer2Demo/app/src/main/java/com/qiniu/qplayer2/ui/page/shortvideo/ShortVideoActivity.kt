@@ -1,6 +1,7 @@
 package com.qiniu.qplayer2.ui.page.shortvideo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.qiniu.qmedia.component.player.*
-import com.qiniu.qmedia.ui.QSurfacePlayerView
 import com.qiniu.qplayer2.R
 import com.qiniu.qplayer2.repository.shortvideo.ModelFactory
 import com.qiniu.qplayer2.repository.shortvideo.VideoItem
@@ -18,7 +18,7 @@ import java.util.*
 class ShortVideoActivity : AppCompatActivity() {
 
     private lateinit var mShortVideoRV: RecyclerView
-    private lateinit var mVideoView: QSurfacePlayerView
+    private lateinit var mVideoView: MySurfacePlayerView
     private lateinit var mShortVideoListAdapter: ShortVideoListAdapter
     private var mCurrentPosition = -1
     private var mCurrentVideoHolder: ShortVideoHolder? = null
@@ -82,7 +82,9 @@ class ShortVideoActivity : AppCompatActivity() {
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(mShortVideoRV)
 
-        mVideoView = QSurfacePlayerView(this)
+        Log.d("ShortVideoActivity", "path=${this.getExternalFilesDir(null)?.path + "/so"}")
+//        /data/data/com.qiniu.qplayer2/files/so/libsoundtouch.so
+        mVideoView = MySurfacePlayerView(this)
         mVideoView.playerControlHandler.addPlayerStateChangeListener(mPlayerStateChangeListener)
         mVideoView.playerRenderHandler.addPlayerRenderListener(mPlayerRenderListener)
         mVideoView.playerControlHandler.init(this)

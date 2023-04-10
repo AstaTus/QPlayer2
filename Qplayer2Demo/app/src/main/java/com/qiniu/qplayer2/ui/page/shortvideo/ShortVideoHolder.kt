@@ -16,7 +16,7 @@ import com.qiniu.qplayer2.ui.widget.*
 
 class ShortVideoHolder(
     private val mItemView: View,
-    private val mVideoPlayerView: QSurfacePlayerView
+    private val mVideoPlayerView: MySurfacePlayerView
 ): RecyclerView.ViewHolder(mItemView) {
 
     private val mVideoContainerFL: FrameLayout = mItemView.findViewById(R.id.video_container_FL)

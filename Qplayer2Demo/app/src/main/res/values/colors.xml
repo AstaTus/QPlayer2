@@ -3,5 +3,25 @@
     <color name="Ba0_u_alpha30">#4c000000</color>
     <color name="Wh0_u_alpha20">#33ffffff</color>
     <color name="Wh0_u_alpha40">#66ffffff</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#FF63B8FF</color>
 
+
+    <color name="white_alpha80">#ccffffff</color>
+    <color name="white_alpha70">#b4ffffff</color>
+    <color name="white_alpha60">#99ffffff</color>
+    <color name="white_alpha50">#88ffffff</color>
+    <color name="white_alpha30">#4Cffffff</color>
+    <color name="white_alpha40">#66ffffff</color>
+    <color name="white_alpha20">#33ffffff</color>
+    <color name="white_alpha11">#19ffffff</color>
+
+    <color name="black_alpha84">#d6000000</color>
+    <color name="black_alpha88">#e0000000</color>
 </resources>

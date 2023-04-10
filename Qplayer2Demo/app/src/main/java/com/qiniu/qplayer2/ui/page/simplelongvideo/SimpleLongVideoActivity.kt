@@ -8,10 +8,7 @@ import com.qiniu.qmedia.component.player.*
 import com.qiniu.qmedia.ui.QTexturePlayerView
 import com.qiniu.qplayer2.R
 import com.qiniu.qplayer2.logic.PlayerSettingVM
-import com.qiniu.qplayer2.ui.page.longvideo.LongControlPanelType
-import com.qiniu.qplayer2.ui.page.longvideo.LongEnviromentType
-import com.qiniu.qplayer2.ui.page.longvideo.LongPlayableParams
-import com.qiniu.qplayer2.ui.page.longvideo.LongVideoParams
+
 import com.qiniu.qplayer2.ui.widget.*
 import com.qiniu.qplayer2ext.commonplayer.data.DisplayOrientation
 

@@ -22,7 +22,7 @@ class MediaItemContextManager {
         }
 
         if (mediaItem == null) {
-            mediaItem = QMediaItemContext(mediaModel, logLevel, localStorageDir, startPos)
+            mediaItem = QMediaItemContext(mediaModel, logLevel, localStorageDir, startPos, "/data/data/com.qiniu.qplayer2/files/so")
             mediaItem.playMediaControlHandler.start()
             mMediaItemContextHashMap[id] = mediaItem
         }

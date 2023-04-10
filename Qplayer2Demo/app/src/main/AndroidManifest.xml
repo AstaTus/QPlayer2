@@ -17,14 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Qplayer2Theme.Base"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.page.longvideo.LongVideoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/Qplayer2Theme.NoActionBar"
-
-            />
+<!--        <activity android:name=".ui.page.longvideo.LongVideoActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"-->
+<!--            android:exported="false"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:windowSoftInputMode="adjustPan"-->
+<!--            android:theme="@style/Qplayer2Theme.NoActionBar"-->
+<!--            />-->
         <activity android:name=".ui.page.shortvideo.ShortVideoActivity" />
         <activity android:name=".ui.page.doubleplayer.DoublePlayerActivity" />
         <activity android:name=".ui.page.main.MainActivity"

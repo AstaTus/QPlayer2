@@ -169,10 +169,10 @@ object LongPlayerDataSourceFactory {
             "http://demo-videos.qnsdk.com/qiniu-2023-240p.mp4", false
         )
 
-        builder.addSubtitleElement("中文",
-            "http://demo-videos.qnsdk.com/qiniu-2023-chinese.srt", true)
-        builder.addSubtitleElement("英文",
-            "http://demo-videos.qnsdk.com/qiniu-2023-english.srt", false)
+//        builder.addSubtitleElement("中文",
+//            "http://demo-videos.qnsdk.com/qiniu-2023-chinese.srt", true)
+//        builder.addSubtitleElement("英文",
+//            "http://demo-videos.qnsdk.com/qiniu-2023-english.srt", false)
 
 
         name = "1-点播-http-mp4-30fps-多清晰度"

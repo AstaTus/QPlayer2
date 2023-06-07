@@ -133,7 +133,7 @@ class ShortVideoActivity : AppCompatActivity() {
                     videoItem?.let {
                         val builder = QMediaModelBuilder()
                         builder.addStreamElement("", QURLType.QAUDIO_AND_VIDEO, 0, it.videoPath, true)
-                        builder.addSubtitleElement("中文", "http://demo-videos.qnsdk.com/qiniu-short-video.srt", true)
+//                        builder.addSubtitleElement("中文", "http://demo-videos.qnsdk.com/qiniu-short-video.srt", true)
                         val playItem = PlayItem(it.videoPath.hashCode(),
                             builder.build(false),
                             it.coverPath)

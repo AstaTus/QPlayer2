@@ -15,7 +15,8 @@ class PlayerToastService
     QIPlayerQualityListener, QIPlayerVideoDecodeListener,
     QIPlayerCommandNotAllowListener, QIPlayerFormatListener,
     QIPlayerSEIDataListener, QIPlayerAuthenticationListener,
-    QIPlayerVideoFrameSizeChangeListener, QIPlayerSeekListener {
+    QIPlayerVideoFrameSizeChangeListener, QIPlayerSeekListener,
+    QIPlayerRenderListener{
 
     private lateinit var mPlayerCore: CommonPlayerCore<LongLogicProvider, LongPlayableParams, LongVideoParams>
 
@@ -30,6 +31,7 @@ class PlayerToastService
         mPlayerCore.mPlayerContext.getPlayerControlHandler().addPlayerAuthenticationListener(this)
         mPlayerCore.mPlayerContext.getPlayerControlHandler().addPlayerVideoFrameSizeChangeListener(this)
         mPlayerCore.mPlayerContext.getPlayerControlHandler().addPlayerSeekListener(this)
+        mPlayerCore.mPlayerContext.getPlayerRenderHandler().addPlayerRenderListener(this)
 
     }
 
@@ -42,6 +44,8 @@ class PlayerToastService
         mPlayerCore.mPlayerContext.getPlayerControlHandler().removePlayerAuthenticationListener(this)
         mPlayerCore.mPlayerContext.getPlayerControlHandler().removePlayerVideoFrameSizeChangeListener(this)
         mPlayerCore.mPlayerContext.getPlayerControlHandler().removePlayerSeekListener(this)
+        mPlayerCore.mPlayerContext.getPlayerRenderHandler().removePlayerRenderListener(this)
+
 
     }
 
@@ -247,5 +251,17 @@ class PlayerToastService
             .duration(PlayerToastConfig.DURATION_3)
             .build()
         mPlayerCore.playerToastContainer?.showToast(toast)
+    }
+
+    override fun onFirstFrameRendered(elapsedTime: Long) {
+        val toast = PlayerToast.Builder()
+            .toastItemType(PlayerToastConfig.TYPE_NORMAL)
+            .location(PlayerToastConfig.LOCAT_LEFT_SIDE)
+            .setExtraString(PlayerToastConfig.EXTRA_TITLE, "首帧耗时：{$elapsedTime}")
+            .duration(PlayerToastConfig.DURATION_3)
+            .build()
+        mPlayerCore.playerToastContainer?.showToast(toast)
+        Log.d("PlayerToastService", "First Frame:{$elapsedTime} ")
+
     }
 }

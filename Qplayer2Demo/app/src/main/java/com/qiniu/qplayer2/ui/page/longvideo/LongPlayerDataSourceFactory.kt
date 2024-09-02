@@ -1,23 +1,46 @@
 package com.qiniu.qplayer2.ui.page.longvideo
 
+import com.astatus.x_sdk_core.XSDK
 import com.qiniu.qmedia.component.player.QMediaModelBuilder
 import com.qiniu.qmedia.component.player.QURLType
 import com.qiniu.qmedia.component.player.QVideoRenderType
 import com.qiniu.qplayer2ext.commonplayer.data.DisplayOrientation
 import com.qiniu.qplayer2ext.commonplayer.data.CommonPlayerDataSource
 import com.qiniu.qplayer2.repository.setting.PlayerSettingRespostory
-
 object LongPlayerDataSourceFactory {
 
     fun create(): CommonPlayerDataSource<LongPlayableParams, LongVideoParams> {
+
         val dataSourceBuilder =
             CommonPlayerDataSource.DataSourceBuilder<LongPlayableParams, LongVideoParams>()
         var videoParams: LongVideoParams
 
         var builder = QMediaModelBuilder()
-        var url = ""
+        var url = XSDK.getProxyUrl("http://demovideos.qiniushawn.top/qiniu-2023-1080p.mp4")
         var name = ""
 
+        url?.let {
+            builder = QMediaModelBuilder()
+            builder.addStreamElement(
+                "", QURLType.QAUDIO_AND_VIDEO, 960,
+                it, true
+            )
+            name = "3-点播-http-mp4-28ps-竖屏"
+
+            videoParams = LongVideoParams(name, name.hashCode().toLong())
+            dataSourceBuilder.addVideo(
+                videoParams,
+                arrayListOf<LongPlayableParams>(
+                    LongPlayableParams(
+                        builder.build(false),
+                        LongControlPanelType.Normal.type,
+                        DisplayOrientation.LANDSCAPE,
+                        LongEnviromentType.LONG.type,
+                        PlayerSettingRespostory.startPosition
+                    )
+                )
+            )
+        }
 
 
 
@@ -137,26 +160,7 @@ object LongPlayerDataSourceFactory {
             )
         )
 
-        builder = QMediaModelBuilder()
-        builder.addStreamElement(
-            "", QURLType.QAUDIO_AND_VIDEO, 960,
-            "http://demo-videos.qnsdk.com/shortvideo/nike.mp4", true
-        )
-        name = "3-点播-http-mp4-28ps-竖屏"
 
-        videoParams = LongVideoParams(name, name.hashCode().toLong())
-        dataSourceBuilder.addVideo(
-            videoParams,
-            arrayListOf<LongPlayableParams>(
-                LongPlayableParams(
-                    builder.build(false),
-                    LongControlPanelType.Normal.type,
-                    DisplayOrientation.LANDSCAPE,
-                    LongEnviromentType.LONG.type,
-                    PlayerSettingRespostory.startPosition
-                )
-            )
-        )
 
 
 //        builder = QMediaModelBuilder()
@@ -315,23 +319,25 @@ object LongPlayerDataSourceFactory {
 
 
         builder = QMediaModelBuilder()
-        url = "https://img.qunliao.info:443/4oEGX68t_9505974551.mp4"
-        builder.addStreamElement("", QURLType.QAUDIO_AND_VIDEO, 360, url, true)
-        name = "12-点播-https-mp4-25fps-端口443"
+        XSDK.getProxyUrl("https://img.qunliao.info/4oEGX68t_9505974551.mp4")?.let {
+            builder.addStreamElement("", QURLType.QAUDIO_AND_VIDEO, 360, it, true)
+            name = "12-点播-https-mp4-25fps-端口443"
 
-        videoParams = LongVideoParams(name, name.hashCode().toLong())
-        dataSourceBuilder.addVideo(
-            videoParams,
-            arrayListOf<LongPlayableParams>(
-                LongPlayableParams(
-                    builder.build(false),
-                    LongControlPanelType.Normal.type,
-                    DisplayOrientation.LANDSCAPE,
-                    LongEnviromentType.LONG.type,
-                    PlayerSettingRespostory.startPosition
+            videoParams = LongVideoParams(name, name.hashCode().toLong())
+            dataSourceBuilder.addVideo(
+                videoParams,
+                arrayListOf<LongPlayableParams>(
+                    LongPlayableParams(
+                        builder.build(false),
+                        LongControlPanelType.Normal.type,
+                        DisplayOrientation.LANDSCAPE,
+                        LongEnviromentType.LONG.type,
+                        PlayerSettingRespostory.startPosition
+                    )
                 )
             )
-        )
+        }
+
 
         builder = QMediaModelBuilder()
         builder.addStreamElement("", QURLType.QAUDIO_AND_VIDEO, 1080,
@@ -590,7 +596,7 @@ object LongPlayerDataSourceFactory {
         )
 
         builder = QMediaModelBuilder()
-        url = "https://sdk-release.qnsdk.com/10701032_194625-hd%20%281%29.mp4"
+        url = "http://demovideos.qiniushawn.top/10701032_194625-hd%20%281%29.mp4"
         builder.addStreamElement("", QURLType.QAUDIO_AND_VIDEO, 1080, url, true)
         name = "16-点播-https-mp4-30fps-竖屏"
         videoParams = LongVideoParams(name, name.hashCode().toLong())

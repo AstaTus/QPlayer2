@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.PowerManager
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
+import com.astatus.x_sdk_core.XSDK
 import com.qiniu.qplayer2.R
 import com.qiniu.qplayer2ext.commonplayer.CommonPlayer
 import com.qiniu.qplayer2ext.commonplayer.CommonPlayerConfig
@@ -38,7 +39,12 @@ class LongVideoActivity : AppCompatActivity() {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         setContentView(R.layout.activity_long_video)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        acquireWakeLock();
+        acquireWakeLock()
+        val dir = this.getExternalFilesDir(null)?.path ?: ""
+//        mProxy = KProxy(KLogLevel.LOG_INFO, dir)
+//        mProxy.start(this)
+        XSDK.start()
+
         initCommonPlayer()
     }
 
@@ -47,6 +53,7 @@ class LongVideoActivity : AppCompatActivity() {
     }
     override fun onDestroy() {
         mCommonPlayer.release()
+        XSDK.stop()
         releaseWakeLock()
         super.onDestroy()
     }
